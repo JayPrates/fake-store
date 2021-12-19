@@ -1,5 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import Link from 'next/link';
+import ProductDetails from '../../pages/productdetails/[details]';
 
 const ProductComponent =  () => {
     const products = useSelector((state) => state.allProducts.products);
@@ -8,6 +10,7 @@ const ProductComponent =  () => {
      {products && products.map((product) => {
         const {id, title, image, price, category} = product;
         return (
+                <Link href={{pathname: `/productdetails/${id}`, query: {id}}} component={ProductDetails}>
             <div className='four column wide' key={id}>
             <div className='ui link cards'>
                 <div className='card'>
@@ -22,6 +25,7 @@ const ProductComponent =  () => {
                 </div>
             </div>
         </div>
+            </Link>
         )
     })}
     </div>
