@@ -24,13 +24,7 @@ const ProductListing = () => {
     return (
         <Container>
             <h1>Product Listing</h1>
-            {products.length > 2 ?  (
-                <ProductComponent />
-                ) : (
-                    <ProductComponent />
-                    )
-            }
-            
+            <ProductComponent />
         </Container>
     )
 }
